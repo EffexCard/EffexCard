@@ -1,0 +1,162 @@
+{% extends 'webapp/base.html' %}
+{% load static from staticfiles %}
+{% load tags %}
+{% block loadfiles %}
+  {% load bootstrap %}
+    {{ form.media }}
+{% endblock %}
+{% block maintitulocuerpo %}<i class="ion ion-bag"></i> Detalle de Compra {% endblock %}
+{% block secondtitulocuerpo %}{% endblock %}
+{% block contenido %}
+<section class="invoice">
+  <!-- title row -->
+  <div class="row">
+    
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="page-header">
+        <i class="fa fa-globe"></i> EffexCard S.A. {% if compra.estado == "Aceptado" %}
+                <span class="label label-success">Aceptado</span></td>
+                {% elif compra.estado == "Rechazado" %}
+                <span class="label label-danger">Rechazado</span></td>
+                {% elif compra.estado == "Pendiente" %}
+                <span class="label label-warning">Pendiente</span></td>
+                {% else %}
+                <span class="label label-default">Cancelado</span></td>
+                {% endif %}
+        <small class="pull-right">Fecha: {{compra.fecha}}</small>
+      </h2>
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- info row -->
+  <div class="row invoice-info" style="margin-bottom:30px;">
+    <div class="col-sm-4 invoice-col">
+      <b>Producto:</b> {{compra.producto}}<br>
+      <b>Cantidad:</b> {{compra.cantidad}}<br>
+      <b>Fecha:</b> {{compra.fecha}}<br>
+      <b>Dirección URL:</b> <a href="{{compra.direccionurl}}">{{compra.direccionurl|slice:":60"}}</a>
+    </div>
+    <!-- /.col -->
+    <div class="col-sm-4 invoice-col">
+      <b>Cliente:</b> {{compra.usuario.perfil.nombre}} {{compra.usuario.perfil.apellido}}<br>
+      <b>Correo electrónico:</b> {{compra.usuario.email}}<br>
+      <b>Dirección:</b> {% if compra.usuario.perfil.direccion%}
+        {{compra.usuario.perfil.direccion}}
+        {% else %}
+        Ninguno
+        {% endif %}
+      <br>
+      <b>Teléfono:</b> {% if compra.usuario.perfil.telefono%}
+        {{compra.usuario.perfil.telefono}}
+        {% else %}
+        Ninguno
+        {% endif %}
+      <br>
+      <b>Celular:</b> {% if compra.usuario.perfil.celular%}
+        {{compra.usuario.perfil.celular}}
+        {% else %}
+        Ninguno
+        {% endif %}
+      <br>  
+    </div>
+    <!-- /.col -->
+    <div class="col-sm-4 invoice-col">
+      <b>ID Compra #{{compra.id}}</b><br>
+      <br>
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+
+  <!-- Table row -->
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="well">
+        <h3>Detalle</h3>
+        {{compra.descripcion}}
+      </div>
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+
+  <div class="row">
+    <!-- accepted payments column -->
+    <div class="col-xs-6">
+    {% if compra.estado == "Aceptado" %}
+      <p class="lead">Fecha Prevista de Entrega del Producto:</p>        
+      <p class="lead" align="center"><strong >2/22/2016</strong></p> 
+    {% endif %}
+      <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+        Al momento de realizar el deposito en las cuentas de EffexCard, revise bien el detalle del deposito. Este debe estar a nombre de EffexCard S.A.
+      </p>
+    </div>
+    <!-- /.col -->
+    <div class="col-xs-6">
+      <div class="table-responsive">
+        <table class="table">
+          <tbody><tr>
+            <th style="width:50%">Subtotal:</th>
+            <td>{{compra.preciototal}} Bs</td>
+          </tr>
+          <tr>
+            <th>Impuesto</th>
+            <td>0,00 Bs</td>
+          </tr>
+          <tr>
+            <th>Total:</th>
+            <td>{{compra.preciototal}} Bs</td>
+          </tr>
+        </tbody></table>
+      </div>
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+
+  <!-- this row will not appear when printing -->
+  <div class="row no-print">
+    <div class="col-xs-12">
+      <a href="/imprimir/compra/{{compra.id}}" target="_blank" class="btn btn-success "><i class="fa fa-print"></i> Imprimir</a> 
+      {% if request.user|has_group:"Supervisores" and compra.estado == "Pendiente"  %} 
+      <a href="/actualizar/compra/3/{{compra.id}}/?next={{request.path}}" class="btn btn-success pull-right" style="margin-left:5px;"><i class="fa fa-check"></i> Confirmar
+      </a> 
+      <a href="/actualizar/compra/4/{{compra.id}}/?next={{request.path}}" class="btn btn-danger pull-right"><i class="fa fa-times"></i> Rechazar
+      </a> 
+      {% endif %}
+        
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block  loadfilesbelow %}
+ <!-- DataTables -->
+    <script src="{% static "siga/plugins/datatables/jquery.dataTables.min.js"%}"></script>
+    <script src="{% static "siga/plugins/datatables/dataTables.bootstrap.min.js"%}"></script>
+    <script>
+      $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+    });
+    $(document).ready(function() {
+        $('#tabla').dataTable({
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por pagina",
+            "zeroRecords": "No se encontraron registros",
+            "info": "Mostrando pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "Ningun registro disponible",
+            "sLoadingRecords": "Cargando...",
+            "sSearch":         "Buscar: ",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Último",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+    },
+        },
+        "order": [[ 0, "asc" ]],
+    });
+    });
+    </script>
+{% endblock%}

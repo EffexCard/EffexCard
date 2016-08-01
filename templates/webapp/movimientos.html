@@ -1,0 +1,91 @@
+{% extends 'webapp/base.html' %}
+{% load static from staticfiles %}
+{% load tags %}
+{% block loadfiles %}
+<!-- DataTables -->
+   <link rel="stylesheet" href="{% static "webapp/plugins/datatables/dataTables.bootstrap.css" %}">
+{% endblock %}
+{% block maintitulocuerpo %}<i class="fa fa-exchange"></i> Movimientos {% endblock %}
+{% block secondtitulocuerpo %}{% endblock %}
+{% block contenido %}
+<div class="row"> 
+    <div class="col-lg-12">
+        <div class="box">
+                <div class="box-header">
+                </div>
+                <div class="box-body">
+                  <table id="tabla" class="table table-striped table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <th>Código</th>
+                        <th>Tipo</th>
+                        <th>Monto</th>
+                        <th>Detalle</th>
+                        <th>Fecha</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for movimiento in movimientos %}
+                      <tr>
+                        <td align="center">{{movimiento.id}}</td>
+                        <td>
+                        {% if movimiento.tipo == "entrada" %}
+                        <span class="label label-success">Deposito</span>
+                        {% else %}
+                        <span class="label label-danger">Compra</span>
+                        {% endif %}
+                        </td>
+                        <td align="center">
+                        {{movimiento.monto}} Bs.
+                        </td>
+                        <td align="center">{{movimiento.detalle}}</td>
+                        <td align="center">{{movimiento.horafecha}}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <th>Código</th>
+                        <th>Tipo</th>
+                        <th>Monto</th>
+                        <th>Detalle</th>
+                        <th>Fecha</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div><!-- /.box-body -->
+            </div>
+    <!-- /.col-lg-12 -->
+    </div>
+</div>
+<!-- /.row -->
+{% endblock %}
+{% block  loadfilesbelow %}
+    <!-- DataTables -->
+    <script src="{% static "webapp/plugins/datatables/jquery.dataTables.min.js"%}"></script>
+    <script src="{% static "webapp/plugins/datatables/dataTables.bootstrap.min.js"%}"></script>
+    <script>
+      $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+    });
+    $(document).ready(function() {
+        $('#tabla').dataTable({
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por pagina",
+            "zeroRecords": "No se encontraron registros",
+            "info": "Mostrando pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "Ningun registro disponible",
+            "sLoadingRecords": "Cargando...",
+            "sSearch":         "Buscar: ",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Último",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+    },
+        },
+        "order": [[ 0, "desc" ]]
+    });
+    });
+    </script>
+{% endblock%}

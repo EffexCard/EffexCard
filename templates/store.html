@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TIENDA EJEMPLO</title>
+    {% load static from staticfiles %}
+	<!-- All css Files Here -->
+	<!-- fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,500' rel='stylesheet' type='text/css'>
+	<!-- bootstrap css -->
+	<link rel="stylesheet" href="{% static "store/css/bootstrap.min.css"%}" />
+	<!-- fontawesome css -->
+	<link rel="stylesheet" href="{% static "store/css/font-awesome.min.css" %}" />
+	<!-- revolution banner css settings -->
+	<link rel="stylesheet" type="text/css" href="{% static "store/lib/rs-plugin/css/settings.css" %}" media="screen" />
+	<!-- style css -->
+    <link rel="stylesheet" href="{% static "store/style.css" %}">
+	<!-- mobilemenu css -->
+    <link rel="stylesheet" href="{% static "store/css/meanmenu.min.css" %}"/>
+	<!-- responsive css -->
+    <link rel="stylesheet" href="{% static "store/css/responsive.css" %}"/>
+	<!-- favicon -->
+    <link rel="shortcut icon" href="{% static "store/images/favicon.png" %}" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	<!-- Header-Section-Strat  -->
+	<header>
+		<div class="container">
+			<div class="header_top">
+				<div class="row"> 
+					<div class="col-md-6">
+						<div class="header_top_left float-left">
+							<ul class="social_icon">
+								<li><a ><i class="fa fa-facebook"></i></a></li>
+								<li><a ><i class="fa fa-twitter"></i></a></li>
+								<li><a ><i class="fa fa-linkedin"></i></a></li>
+								<li><a ><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+							<ul class="social_others">
+								<li><a><i class="fa fa-phone"></i>+5915468896</a></li>
+								<li><a href="#"><i class="fa fa-envelope-o"></i>ejemplo@tienda.com</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="header_top_right text-right">
+							<ul>
+								<li><a >Cuenta</a></li>
+								<li><a >Ingresar</a></li>
+								<li class="searchbox">
+									<input type="search" placeholder="Buscar......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+									<input type="submit" class="searchbox-submit" value="">
+									<span class="searchbox-icon"><i class="fa fa-search"></i></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="container">
+				<div class="row mega_relative">
+					<div class="col-xs-12 col-sm-2">
+						<div class="logo head_lo">
+							<a href="/store"><img src="{% static "store/images/logo.png"%}" alt="Logo" /></a>
+						</div>
+					</div>
+					<div class="col-sm-10">
+						<div class="mainmenu float-right">
+							<nav>
+								<ul>
+									<li class="shop_icon">
+										<a ><img src="{% static "store/images/menu_icon_img.png"%}" alt="" /></a>
+										<span>10</span>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+	</header>
+	<!-- mobile-menu-area start -->
+	<div class="mobile-menu-area">
+		<div class="container">
+			<div class="mobile-menu">
+				<nav id="dropdown">
+					<ul>
+						<li><a href="index.html">HOME</a></li>
+						<li><a href="#">NEW</a></li>
+						<li><a href="#">FEATURED</a></li>
+						<li><a href="#">BLOG</a></li>
+						<li><a href="#">BRAND</a></li>
+						<li><a href="#">OFFERS</a></li>
+						<li><a href="#">CONTACT</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<!-- mobile-menu-area end -->
+	<!-- Header-Section-End  -->
+	<!-- Product-Section-Strat  -->
+	<section class="product_area section-padding">
+		<div class="padding_right main_single_product">
+			<div class="single_product">
+				<div class="product_img">
+					<img src="{% static "store/images/product/tre-shirt-1.png" %}" alt="DARK BLUE IMAGE" />
+				</div>
+				<div class="product_text dark_product">
+					<h1>AZUL</h1>
+				</div>
+			</div>
+		</div>
+		<div class="padding_left main_single_product">
+			<div class="single_product single_product_two">
+				<div class="product_img">
+					<img src="{% static "store/images/product/tre-shirt-1.png" %}" alt="DARK BLUE IMAGE" />
+				</div>
+				<div class="product_text_two product_text">
+					<h1>CAMISETA</h1>
+					<p>100% ALGODON</p>
+					<p>COLOR: AZUL OSCURO</p>
+					<p>CUELLO REDONDEADO & MANGAS CORTAS</p>
+					<p>Estilo clasico</p>
+					<p>PRECIO: 121 Bs</p>
+					<a class="shop_now_btn" href="/agregar/compra/externa/?next=/agregar/compra/externa/&producto=camiseta 345&precio=121.23&descripcion=Estilo Clasico&tienda=ejemplo&url=http://localhost/agregar/compra/externa/">PAGAR CON EFFEXCARD</a>
+				</div>
+			</div>
+		</div>
+		<div class="padding_right main_single_product section-padding-top">
+			<div class="single_product single_product_two">
+				<div class="product_img tre_shirt_2">
+					<img src="{% static "store/images/product/tre-shirt-2.png" %}" alt="DARK BLUE IMAGE" />
+				</div>
+				<div class="product_text_two tre_shirt_2_text product_text">
+					<h1>CAMISETA</h1>
+					<p>100% ALGODON</p>
+					<p>COLOR: AZUL OSCURO Y BLANCO</p>
+					<p>CUELLO REDONDEADO & MANGAS CORTAS</p>
+					<p>Estilo clasico</p>
+					<p>PRECIO: 123 Bs</p>
+					<a class="shop_now_btn" href="/agregar/compra/externa/?next=/agregar/compra/externa/&producto=camiseta blanca&precio=123.23&descripcion=Estilo Clasico&tienda=ejemplo&url=http://localhost/agregar/compra/externa/">PAGAR CON EFFEXCARD</a>
+				</div>
+			</div>
+		</div>
+		<div class="padding_left main_single_product section-padding-top">
+			<div class="single_product">
+				<div class="product_img tre_shirt_2">
+					<img src="{% static "store/images/product/tre-shirt-2.png" %}" alt="DARK BLUE IMAGE" />
+				</div>
+				<div class="product_text dark_product">
+					<h1>BLANCO Y AZUL</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Product-Section-End  -->
+	<!-- Footer-Section-Start -->
+	<footer>
+		
+	</footer>
+	<!-- Footer-Section-End -->
+	<!-- All js Files Here -->
+	<!-- jquery-1.11.3 -->
+    <script src="{% static "store/js/jquery-1.11.3.min.js" %}"></script>
+	<!-- bootstrap js -->
+    <script src="{% static "store/js/bootstrap.min.js" %}"></script>
+	<!-- revolution js -->
+	<script type="text/javascript" src="{% static "store/lib/rs-plugin/js/jquery.themepunch.tools.min.js" %}"></script>   
+	<script type="text/javascript" src="{% static "store/lib/rs-plugin/js/jquery.themepunch.revolution.min.js" %}"></script>
+	<script src="{% static "store/lib/rs-plugin/rs.home.js" %}"></script>
+	<!-- search-box js -->
+    <script src="{% static "store/js/search-box.js" %}"></script>
+	<!-- scrollUp js -->
+    <script src="{% static "store/js/jquery.scrollUp.js" %}"></script>
+	<!-- mobilemenu js -->
+    <script src="{% static "store/js/jquery.meanmenu.js" %}"></script>
+	<!-- main js -->
+    <script src="{% static "store/js/main.js" %}"></script>
+  </body>
+</html>

@@ -1,0 +1,1 @@
+web: gunicorn effexcard.wsgi --log-file -

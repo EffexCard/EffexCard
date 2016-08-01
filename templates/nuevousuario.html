@@ -1,0 +1,70 @@
+{% extends 'overbase.html' %}
+    
+{% load static from staticfiles %}
+{% load bootstrap %}
+{% block contenido %}
+<style>
+/* Color of valid field */
+.help-block{
+    color: white;
+}
+
+/* Color of invalid field */
+.has-error .control-label,
+.has-error .help-block,
+.has-error .form-control-feedback {
+    color: white;
+}
+</style>
+<div class="inner-bg">
+    <div class="container">
+        
+        {% if info_enviado %}
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2" style="margin-top:20px;">
+                    <h1><strong style="color:white;">Gracias por registrarse!</strong> </h1>
+                    <div class="description">
+                        <p>
+                            <strong style="color:white;">Hemos enviado un correo electrónico de confirmación a la dirección de correo registrado. Para usar la aplicación Effex Card, verifica tu dirección de correo.</strong>
+                        <a href="/login" class="btn btn-success " >Volver</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 text">
+                <h1><strong>EffexCard</strong> </h1>
+                <div class="description">
+                    <p>
+                        <strong>Nos especializamos en el servicio de compras por Internet en Bolivia</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 form-box">
+                <div class="form-top">
+                    <div class="form-top-left">
+                        <h3>Nuevo Usuario</h3>
+                    </div>
+                    <div class="form-top-right">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </div>
+                <div class="form-bottom" style="color:white;">
+                    <form role="form" action="" method="post" class="login-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <div class="form-group">
+                            {{ formulario_user | bootstrap }}
+                        </div>
+                        <button type="submit" class="btn">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>        
+{% endblock %}
+

@@ -1,0 +1,98 @@
+<!--VISTA PARA LA EDICION DEL PERFIL Y ACTUALIZACION DE CONTRASEÑA -->
+{% extends 'webapp/base.html' %}
+{% load static from staticfiles %}
+
+{% block loadfiles %}
+  {% load bootstrap %}
+    {{ form.media }}
+{% endblock %}
+{% block maintitulocuerpo %}<i class="fa fa-user"></i> Perfil {% endblock %}
+{% block secondtitulocuerpo %}{{request.user.perfil.nombre}}{% endblock %}
+{% block contenido %}
+  <div class="row">
+    <div class="col-md-3">
+      <!-- Profile Image -->
+      <div class="box box-primary">
+        <div class="box-body box-profile">
+        <a href="/actualizar/foto" class="btn btn-primary btn-xs pull-right" data-toggle="tooltip" data-placement="right" data-original-title="Actualizar Foto"> <i class="fa fa-pencil"></i></a>
+          <img class="profile-user-img img-responsive img-circle" src="{{request.user.perfil.foto.url}}" alt="User profile picture"> 
+          <h3 class="profile-username text-center">{%if request.user.perfil.nombre %}
+              {{ request.user.perfil.nombre }}
+              {%else%}
+              {{request.user.email}}
+              {%endif%}</h3>
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+
+      <!-- About Me Box -->
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Contacto</h3>
+        </div><!-- /.box-header -->
+          <div class="box-body">
+          <strong><i class="fa fa-envelope margin-r-5"></i>  Correo Electronico <a href="/actualizar/correo" class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="right" data-original-title="Actualizar Correo"> <i class="fa fa-pencil"></i></a> </strong>
+          <p class="text-muted">
+            {{request.user.email}}
+          </p>
+
+          <hr>
+
+          <strong><i class="fa fa-mobile margin-r-5"></i> Celular</strong>
+          <p class="text-muted">{{request.user.perfil.celular}}</p>
+
+          <hr>
+
+          <strong><i class="fa fa-tty margin-r-5"></i> Teléfono</strong>
+          <p class="text-muted">{{request.user.perfil.telefono}}</p>
+
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div><!-- /.col -->
+    <div class="col-md-9">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+            <a href="/actualizar/password" class="btn btn-danger  pull-right" style="margin-left:5px;"><i class="fa fa-lock"></i> Cambiar Contraseña</a>
+            <a href="/actualizar/usuario" class="btn btn-warning pull-right"><i class="fa fa-pencil"></i> Editar Información</a>
+          <h3 class="box-title">Acerca de Mí </h3>
+
+        </div><!-- /.box-header -->
+          <div class="box-body">
+          <strong><i class="fa fa-user margin-r-5"></i> CI ó NIT </strong>
+          <p >
+          {% if request.user.perfil.nit %}
+            {{request.user.perfil.nit}}
+          {% else %}
+            Ninguno
+          {% endif %}
+          </p>
+          
+          <strong><i class="fa fa-calendar margin-r-5"></i> Fecha de Nacimiento </strong>
+          <p >
+          {% if request.user.perfil.fecha_nacimiento %}
+            {{request.user.perfil.fecha_nacimiento}}
+          {% else %}
+            Ninguno
+          {% endif %}
+          </p>
+
+          <strong><i class="fa fa-map-marker margin-r-5"></i> Dirección </strong>
+          <p >
+          {% if request.user.perfil.direccion %}
+            {{request.user.perfil.direccion}}
+          {% else %}
+            Ninguno
+          {% endif %}
+          </p>
+
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+    </div><!-- /.col -->
+  </div><!-- /.col -->
+{% endblock %}
+{% block  loadfilesbelow %}
+ <script>
+      $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+    });
+    </script>
+{% endblock%}
