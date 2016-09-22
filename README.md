@@ -29,3 +29,5 @@ PASO 7: Levantar el servidor del proyecto
 Para instalar el proyecto en Heroku, seguir los siguientes tutoriales. 
    - https://devcenter.heroku.com/articles/getting-started-with-python	
    - https://devcenter.heroku.com/articles/deploying-python
+
+<a href="http://lightpath.io">LightPath Team 2016</a> 
