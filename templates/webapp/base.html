@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     {% load static from staticfiles %}
     <title>EffexCard</title>
+    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="{% static "webapp/bootstrap/css/bootstrap.css"%}">
     <link rel="stylesheet" href="{% static "webapp/plugins/font-awesome/css/font-awesome.min.css"%}">
@@ -23,33 +25,33 @@
     <div class="wrapper">
 
       <header class="main-header">
-        <a href="/home" class="logo">
+        <a href="/home" class="logo" style="background:#F2EAE7;color:black;">
           <span class="logo-mini"><b>Effex</b></span>
-          <span class="logo-lg"><b><i class="fa fa-money"></i> EffexCard</b></span>
+          <span class="logo-lg" ><b><img width="30%" src="{% static "img/effexcard.png" %}"> EffexCard</b></span>
         </a>
         <nav class="navbar navbar-static-top" role="navigation">
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
+            <i class="fa fa-arrows-h" aria-hidden="true"></i>
           </a>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   {% if request.user.perfil.foto %}
-                    <img src="{{request.user.perfil.foto.url}}" class="user-image" alt="User Image">
+                    <img src="{{request.user.perfil.foto.url}}" class="user-image" alt="User Image" >
                   {% else %}
                     <img src="/media/default.jpg" class="user-image" alt="User Image">
                   {% endif %}
                   
-                  <span class="hidden-xs">{%if request.user.perfil.nombre%}
+                  <span class="hidden-xs">{%if request.user.perfil.nombre %}
               {{ request.user.perfil.nombre}}
               {%else%}
-              {{request.user.email|slice:":16"}}
+              {{request.user.email}}
               {%endif%}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
-                  <li class="user-header">
+                  <li class="user-header" style="background:#E2AD1C;">
                     {% if request.user.perfil.foto %}
                     <img src="{{request.user.perfil.foto.url}}" class="img-circle" alt="User Image">
                   {% else %}
@@ -57,7 +59,7 @@
                   {% endif %}
                     <p>
                       {%if request.user.perfil.nombre %}
-              <strong>{{ request.user.perfil.nombre }} </strong> <br>
+              <strong>{{ request.user.perfil.nombre|slice:":27" }} </strong> <br>
               {{ request.user.email }}
               {%else%}
               {{request.user.email}}
@@ -83,28 +85,28 @@
           <div class="user-panel">
             <div class="pull-left image">
               {% if request.user.perfil.foto %}
-                    <img src="{{request.user.perfil.foto.url}}" class="img-circle" alt="User Image">
+                    <img src="{{request.user.perfil.foto.url}}" class="img-circle" alt="User Image" style="z-index:5;height: 40px;width: 40px;margin-left:-5px;">
                   {% else %}
                     <img src="/media/default.jpg" class="img-circle" alt="User Image">
                   {% endif %}
             </div>
-            <div class="pull-left info">
+            <div class="pull-left info" style="margin-left:-15px;">
               <p>{%if request.user.perfil.nombre  %}
-              {{ request.user.perfil.nombre }} 
+              {{ request.user.perfil.nombre|slice:":25" }} 
               {%else%}
               {{request.user.email|slice:":18"}}
               {%endif%}</p>
               <a><i class="fa fa-circle text-success"></i> En línea</a>
             </div>
           </div>
-          <form action="#" method="get" class="sidebar-form">
+          <!-- <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
               <input type="text" name="q" class="form-control" placeholder="Buscar...">
               <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
               </span>
             </div>
-          </form>
+          </form> -->
           <!-- SECCION DEL MENU PRINCIPAL -->
           <ul class="sidebar-menu">
             <li class="header">MENU PRINCIPAL</li>
@@ -154,9 +156,6 @@
             <small>{% block secondtitulocuerpo %}
                 {% endblock %}</small>
           </h1>
-          <ol class="breadcrumb">
-          <a class="btn btn-default hidden-xs hidden-sm" href="javascript:history.back();" type="button" style="float:right;"> <i class="fa fa-arrow-circle-left"></i> Volver</a>
-          </ol> 
         </section>
 
         <section class="content">
@@ -168,9 +167,9 @@
       </div>
       <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Versión</b> 1.0
+      <b>Versión</b> 1.3
     </div>
-    <strong>Copyright © 2016 <a href="/webiste">EffexCard Team</a>.</strong>
+    <strong>Copyright © 2016 <a href="/website" style="color:#AC8315;">EffexCard Team</a>.</strong>
   </footer>
 
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -178,7 +177,7 @@
     <script>
       $.widget.bridge('uibutton', $.ui.button);
     </script>
-    <script src="{% static "webapp/bootstrap/js/bootstrap.min.js"%} "></script>
+    <script src="{% static "webapp/bootstrap/js/bootstrap.js"%} "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
     <script src="{% static "webapp/plugins/daterangepicker/daterangepicker.js"%} "></script>
     <script src="{% static "webapp/plugins/datepicker/bootstrap-datepicker.js"%} "></script>

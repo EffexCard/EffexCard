@@ -1,0 +1,175 @@
+{% extends 'website/base.html'%}
+{% load static from staticfiles %}
+{% block contenido %}
+       <!-- Slider Section -->
+        <section id="home" class="slider-section" style="background-image: url({% static 'assets/images/slide-1.jpg' %});no-repeat;">
+          <div id="tt-carousel" class="carousel tt-carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#tt-carousel" data-slide-to="0" class="active"></li>
+              <li data-target="#tt-carousel" data-slide-to="1"></li>
+              <li data-target="#tt-carousel" data-slide-to="2"></li>
+              <li data-target="#tt-carousel" data-slide-to="3"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" style="padding-left:100px;">
+              <div class="item active">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-7">
+                        <div class="carousel-intro">
+                          <h1 class="animated fadeInDown animation-delay-6 carousel-title">Bienvenido a </h1>
+
+                          <h2 class="animated fadeInDown animation-delay-4 crousel-subtitle">EffexCard</h2>
+ 
+                          <p class="animated fadeInUp animation-delay-10">Comprar online nunca fue más fácil, seguro y divertido, únete y vive una experiencia única con el líder en comercio por Internet.</p>
+                          
+                        </div><!-- /.carousel-intro -->
+                    </div><!-- /.col-md-6 -->
+
+                    <div class="col-md-6 col-sm-5 hidden-xs">
+                      
+                    </div><!-- /.col-md-6 -->
+                    <div class="col-lg-12" align="center" style="margin-top:125px;margin-left:-50px;"><a href="/signup" class=" btn btn-default animated fadeInUp animation-delay-10">Regístrate</a> </div>
+                  </div><!-- /.row -->
+                </div><!-- /.container -->
+              </div><!-- /.item -->
+
+              <div class="item">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-8">
+                        <div class="carousel-intro">
+                          <h1 class="animated fadeInDown animation-delay-6 carousel-title">NO HAY TARJETA
+
+DE CREDITO??</h1>
+
+                          <h2 class="animated fadeInDown animation-delay-4  crousel-subtitle"> NO HAY PROBLEMA </h2>
+ 
+                          <p class="animated fadeInUp animation-delay-10">Nuestro objetivo es hacer lo más simple posible y accesible para todos el poder comprar por internet. Para añadir dinero a tu cuenta EFFEXCARD, solo es necesitas realizar un depósito bancario y serás acreditado. Luego disponerlo como tu quieras.</p>
+                        </div><!-- /.carousel-intro -->
+                    </div><!-- /.col-md-6 -->
+
+                    <div class="col-md-6 col-sm-4 hidden-xs carousel-img-wrap">
+                    </div><!-- /.col-md-6 -->
+                    <div class="col-lg-12" align="center" style="margin-top:25px;margin-left:-50px;"><a href="/signup" class=" btn btn-default animated fadeInUp animation-delay-10">Regístrate</a> </div>
+
+                  </div><!-- /.row -->
+                </div><!-- /.container -->
+              </div><!-- /.item -->
+
+              <div class="item">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-8">
+                        <div class="carousel-intro">
+                          <h1 class="animated fadeInDown animation-delay-6 carousel-title">AHORA VENDER ONLINE</h1>
+
+                          <h2 class="animated fadeInDown animation-delay-4  crousel-subtitle">  ES POSIBLE</h2>
+ 
+                          <p class="animated fadeInUp animation-delay-10">Siendo que estés listo para llevar a tu negocio online, o que quieras poder cerrar una venta sin necesidad de largos, complicados e incomodos procedimientos para tu cliente, EFFEXCARD es tu solución.</p>
+                        </div><!-- /.carousel-intro -->
+                    </div><!-- /.col-md-6 -->
+
+                    <div class="col-md-6 col-sm-4 hidden-xs carousel-img-wrap">
+                    </div><!-- /.col-md-6 -->
+                    <div class="col-lg-12" align="center" style="margin-top:65px;margin-left:-50px;"><a href="/quiero_negocio" class=" btn btn-default animated fadeInUp animation-delay-10">Leer más</a> </div>
+
+                  </div><!-- /.row -->
+                </div><!-- /.container -->
+              </div><!-- /.item -->
+              <div class="item">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6 col-sm-8">
+                        <div class="carousel-intro">
+                          <h1 class="animated fadeInDown animation-delay-6 carousel-title">GANAR DINERO</h1>
+
+                          <h2 class="animated fadeInDown animation-delay-4  crousel-subtitle">  NUNCA FUE MAS FÁCIL</h2>
+ 
+                          <p class="animated fadeInUp animation-delay-10">El censo boliviano de 2012 muestra que solo el 9,3% de la población tenia internet en sus casas, ahora mira, el crecimiento es exponencial, no dejes que pase más tiempo, y conquista el futuro</p>
+                        </div><!-- /.carousel-intro -->
+                    </div><!-- /.col-md-6 -->
+
+                    <div class="col-md-6 col-sm-4 hidden-xs carousel-img-wrap">
+                    </div><!-- /.col-md-6 -->
+                    <div class="col-lg-12" align="center" style="margin-top:35px;margin-left:-50px;"><a href="/quiero_negocio" class=" btn btn-default animated fadeInUp animation-delay-10">Leer más</a> </div>
+
+                  </div><!-- /.row -->
+                </div><!-- /.container -->
+              </div><!-- /.item -->
+
+            </div><!-- /.carousel-inner -->
+             <!-- Left and right controls -->
+              <a class="left carousel-control" href="#tt-carousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#tt-carousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+          </div>
+        </section>
+        <!-- Slider Section End -->
+
+        <!-- Service Section -->
+        <section id="service" class="service-section section-padding" style="margin-top:-30px;margin-bottom:-50px;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Nuestro <span class="light-text">Servicio</span></h2>
+                    <div class="title-border-container">
+                        <div class="title-border"></div>
+                    </div>
+                </div><!-- /.section-title -->
+ 
+                <div class="row mt-70">
+                    <div class="col-md-4">
+                        <div class="featured-item mb-30">
+                            <div class="icon square">
+                                <i class="fa fa-lock"></i>
+                            </div>
+                            <div class="title">
+                                <h3>SEGURO</h3>
+                            </div>
+                            <div class="desc">
+                                <p>Tu seguridad es nuestra prioridad principal, utilizamos lo último en tecnología contra fraude para mantener tu EFFEXCARD fuera del alcance de criminales</p>
+                            </div>
+                        </div><!-- /.featured-item -->
+                    </div><!-- /.col-md-4 -->
+
+                    <div class="col-md-4">
+                        <div class="featured-item mb-30">
+                            <div class="icon square">
+                                <i class="fa fa-line-chart"></i>
+                            </div>
+                            <div class="title">
+                                <h3>EFICIENTE</h3>
+                            </div>
+                            <div class="desc">
+                                <p>Todo funciona. Y lo mejor es que es simple y cómodo para ti. Nuestra diferencia, es que el sistema fue creado para girar alrededor de ti, no tu alrededor del sistema</p>
+                            </div>
+                        </div><!-- /.featured-item -->
+                    </div><!-- /.col-md-4 -->
+
+                    <div class="col-md-4">
+                        <div class="featured-item mb-30">
+                            <div class="icon square">
+                                <i class="fa fa-lightbulb-o "></i>
+                            </div>
+                            <div class="title">
+                                <h3>INNOVADOR</h3>
+                            </div>
+                            <div class="desc">
+                                <p>Conocemos la importancia de ser competitivos en el mercado, y siempre estaremos en busca de nuevas herramientas para que tu negocio esté siempre encima de tus competidores y disponible para las necesidades del nuevo cliente.</p>
+                            </div>
+                        </div><!-- /.featured-item -->
+                    </div><!-- /.col-md-4 -->
+
+                </div><!-- /.row -->
+
+            </div><!-- /.container -->
+        </section>
+        <!-- Service Section End -->
+{% endblock %}

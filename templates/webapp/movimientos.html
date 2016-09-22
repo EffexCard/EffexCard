@@ -22,6 +22,7 @@
                         <th>Monto</th>
                         <th>Detalle</th>
                         <th>Fecha</th>
+                        <th>Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -39,7 +40,14 @@
                         {{movimiento.monto}} Bs.
                         </td>
                         <td align="center">{{movimiento.detalle}}</td>
-                        <td align="center">{{movimiento.horafecha}}</td>
+                        <td align="center">{{movimiento.horafecha|date:'d/m/Y'}}</td>
+                        <td align="center">
+                            {% if movimiento.tipo == "salida" %}
+                            <a href="/detalle/compra/{{movimiento.codigo}}" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" data-original-title="Ver Detalle"><i class="fa fa-search"> </i></a>
+                            {% else %}
+                            <a href="/detalle/deposito/{{movimiento.codigo}}" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" data-original-title="Ver Detalle"><i class="fa fa-search"> </i></a>
+                            {% endif %}
+                        </td>
                       </tr>
                       {% endfor %}
                     </tbody>

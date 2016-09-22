@@ -34,7 +34,12 @@
   <div class="row invoice-info" style="margin-bottom:30px;">
     <div class="col-sm-4 invoice-col">
       <b>Fecha:</b> {{deposito.fecha}}<br>
-      <b>Adjunto:</b> <a data-toggle="tooltip" data-placement="bottom" data-original-title="Ver adjunto" href="{{deposito.adjunto.url}}" class="btn btn-primary btn-sm" target="_blank"><i class="fa fa-file"></i> Ver deposito</a>
+      <b>Adjunto:</b> 
+      {% if deposito.adjunto %}
+      <a data-toggle="tooltip" data-placement="bottom" data-original-title="Ver adjunto" href="{{deposito.adjunto.url}}" class="btn btn-primary btn-sm" target="_blank"><i class="fa fa-file"></i> Ver deposito</a>
+      {% else %}
+      Ninguno
+      {% endif %}
     </div>
     <!-- /.col -->
     <div class="col-sm-4 invoice-col">

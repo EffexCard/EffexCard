@@ -20,7 +20,7 @@ Version: 1.0
 			[2.1.2 Header-Top-Right ]
 		[2.2 Mainmenu ]
 	[3. Slider-Section ]
-	[4. Product-Section ]
+	[4. Product-Section ]  
 		[4.1 Left-Product ]
 		[4.2 Right-Product ]
 	[5. Choose-Section ]
@@ -426,7 +426,7 @@ li.searchbox.searchbox-open {padding-top: 0;}
   left:0;
 }
 .product_text_two h1 {
-  border-bottom: 2px solid #3A4B60;
+  //border-bottom: 2px solid #3A4B60;
   margin-bottom: 65px;
 }
 .product_text p {

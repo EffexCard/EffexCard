@@ -105,6 +105,7 @@ class Transferencia(models.Model):
     tipo = models.CharField(max_length=45, blank=True,choices=opciones,default="entrada")
     responsable = models.ForeignKey(settings.AUTH_USER_MODEL,default=None,verbose_name = "Responsable")
     cuenta = models.ForeignKey(Cuenta, db_column='cuenta')
+    codigo = models.IntegerField(default=0)
     class Meta:
         #managed = False
         db_table = 'transferencia'

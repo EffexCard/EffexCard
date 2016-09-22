@@ -1,0 +1,128 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="EFFEXCARD es una empresa que permite a TODOS realizar compras de forma simple y segura por internet.">
+        <!-- <meta name="keywords" content="onepage, portfolio, corporate, business, parallax, creative, agency"> -->
+        <meta name="author" content="EdwinSalcedo.com">
+
+        <title>EffexCard</title>
+        {% load static from staticfiles %}
+        <!--  favicon -->
+        <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+        <!--  apple-touch-icon -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static "assets/images/ico/apple-touch-icon-144-precomposed.png" %}">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static "assets/images/ico/apple-touch-icon-114-precomposed.png" %}">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static "assets/images/ico/apple-touch-icon-72-precomposed.png" %}">
+        <link rel="apple-touch-icon-precomposed" href="{% static "assets/images/ico/apple-touch-icon-57-precomposed.png" %}">
+
+
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700' rel='stylesheet' type='text/css'>
+        <!-- Animate CSS -->
+        <link href="{% static "assets/css/animate.css" %}" rel="stylesheet">
+        <!-- jvectormap CSS -->
+        <link href="{% static "assets/css/jquery-jvectormap.css" %}" rel="stylesheet">
+        <!-- FontAwesome CSS -->
+        <link href="{% static "assets/fonts/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet">
+        <!-- magnific-popup -->
+        <link href="{% static "assets/magnific-popup/magnific-popup.css" %}" rel="stylesheet">
+        <!-- owl.carousel -->
+        <link href="{% static "assets/owl.carousel/assets/owl.carousel.css" %}" rel="stylesheet">
+        <link href="{% static "assets/owl.carousel/assets/owl.theme.default.min.css" %}" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="{% static "assets/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+        <!-- Style CSS -->
+        <link href="{% static "assets/style.css" %}" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body id="page-top" data-spy="scroll" data-target=".navbar">
+
+        <!-- top-bar -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-7">
+                        <div class="cta-wrapper">
+                            <ul class="list-inline">
+                                 <li><a href="/website"> <strong style="font-size:130%;margin-left:-20px;"> EFFEXCARD</strong></a></li>
+                                 <!--
+                                <li class="hidden-xs"><a href="#"><i class="fa fa-phone"></i> +5914165485</a></li>
+                                <li class="hidden-sm hidden-xs"><a href="#" ><i class="fa fa-envelope"></i> contacto@effexcard.com</a></li> -->
+                                <li><a class="page-scroll" href="/quienes_somos">Que es EffexCard?</a></li>
+                                <li><a class="page-scroll" href="/quiero_negocio">Quiero Negocio</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-5">
+                        <div class="cta-wrapper text-right">
+                            <ul class="list-inline">
+                                <li><a class="page-scroll" href="/ayuda">Ayuda</a></li>
+                                <li><a class="page-scroll" href="/login">Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- top-bar end-->
+        {% block contenido %}
+        {% endblock %}
+        <!-- Footer Section -->
+        <footer class="footer-section ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <span class="copy-text">&copy; Copyright 2016 &nbsp;&nbsp; EffexCard Team<!--
+                        Desarrollado por <a href="http://trendytheme.net/" target="_blank">AgilMatik</a>-->
+                        </span>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <ul class="footer-menu list-inline">
+                            <li><a href="/quienes_somos">Que es EffexCard?</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Section End -->
+
+
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <!-- End Preloader -->
+
+
+
+        <!-- jQuery -->
+        <script src="{% static "assets/js/jquery-2.2.2.min.js" %}"></script>
+        <script src="{% static "assets/bootstrap/js/bootstrap.min.js" %}"></script>
+        <script src="{% static "assets/js/jquery.easing.min.js" %}"></script>
+        <script src="{% static "assets/js/smoothscroll.min.js" %}"></script>
+        <script src="{% static "assets/js/jquery.sticky.js" %}"></script>
+        <script src="{% static "assets/js/jquery.inview.min.js" %}"></script>
+        <script src="{% static "assets/js/jquery.countTo.min.js" %}"></script>
+        <script src="{% static "assets/js/jquery.shuffle.min.js" %}"></script>
+        <script src="{% static "assets/magnific-popup/jquery.magnific-popup.min.js" %}"></script>
+        <script src="{% static "assets/js/jquery.BlackAndWhite.min.js" %}"></script>
+        <script src="{% static "assets/owl.carousel/owl.carousel.min.js" %}"></script>
+        <script src="{% static "assets/js/ajaxchimp.js" %}"></script>
+        <script src="{% static "assets/js/jquery-jvectormap-2.0.3.min.js" %}"></script>
+        <script src="{% static "assets/js/jquery-jvectormap-world-mill-en.js" %}"></script>
+        <script src="{% static "assets/js/scripts.js" %}"></script>
+    </body>
+  
+</html>
